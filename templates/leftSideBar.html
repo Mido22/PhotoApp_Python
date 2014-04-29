@@ -1,0 +1,10 @@
+
+
+
+<table style="text-align:center;">
+    <tr><td><h2>Albums</h2></td></tr>
+        {% for album in items %}
+        <tr><td><input type="button"  onclick="mainPage('{{ album.name }}')" value="{{ album.disp_with_count }}"></td></tr>
+    {% endfor %}
+<tr><td><input type="button"  onclick="createAlbum()" value="+Create New Album"></td></tr>
+<tr><td><input type="button" onclick="leftSideBar()" value="Refresh"></td></tr></table>

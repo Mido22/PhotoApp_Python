@@ -1,0 +1,55 @@
+
+<!--script>
+    alert('asdas');
+    ckBoxes=new Array();
+    ckBoxCount=0;
+</script-->
+
+<div   class="gridContainer clearfix">
+<div id="LayoutDiv2">
+<!--div id="user_details"></div-->
+<div id="album"><table> <tr>
+    <td style="text-align:center;width:700px;"><h2>{{ album.name }}</h2></td>
+    <td><input type="button"  onclick="renameAlbum('{{ album.name }}')" value="Rename Album"></td>
+    <td><input type="button"  onclick="deleteAlbum('{{ album.name }}')" value="Delete Album"></td>
+</tr></table></div>
+        <div id="LayoutDiv1"><div id="Image"></div></div>
+    <div id="LayoutDiv3">
+        <table><form name="checkBoxForm" id="checkBoxForm">
+            {% for thumb2 in thumbs %}<tr>
+                {% for thumb in thumb2 %}<td>
+                <input type="checkbox" name="chBox" value="{{ thumb.name }}" id="{{ thumb.name }}" onchange="modifySelect('{{ thumb.name }}')">
+                <img border="0" src="{{ MEDIA_URL }}{{ thumb.rel_path }}" alt="no Thumbs Available"  ondblclick="loadImage('{{ thumb.name }}')"  width="200" height="150" >
+            </td>{% endfor %}</tr>
+            {% endfor %}
+        </form></table>
+    </div></div>
+</div>
+ <!--div id="photo"></div-->
+
+
+
+  	<div style="position: fixed; bottom:5px;right:5px;">
+        <table>
+            <tr>
+                <td>
+                    <input type="button" onclick="selectAll()"  value="Select All">
+                </td>
+                <td>
+                    <input type="button" onclick="unSelectAll()"  value="Deselect All">
+                </td>
+                <td>
+                    <input type="button" onclick="movePhotos()" value="move">
+                </td>
+                <td>
+                    <input type="button" onclick="deletePhotos()" value="delete">
+                </td>
+                <td>
+                    <input type="button" onclick="downloadPhotos()" value="download">
+                </td>
+                <td>
+                    <input type="button" onclick="makeCollage()" value="make Collage">
+                </td>
+            </tr>
+        </table>
+  	</div>
